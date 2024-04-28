@@ -5,15 +5,66 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".IU.MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivAppointment"
+        android:layout_width="86dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_10" />
+
+    <ImageView
+        android:id="@+id/ivAdvice"
+        android:layout_width="94dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUbication"
+        app:srcCompat="@drawable/image_6" />
+
+    <ImageView
+        android:id="@+id/ivUbication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="120dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_4" />
+
+    <ImageView
+        android:id="@+id/ivEmergency"
+        android:layout_width="88dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAppointment"
+        app:srcCompat="@drawable/image_7" />
+
+    <ImageView
+        android:id="@+id/ivShop"
+        android:layout_width="94dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAdvice"
+        app:srcCompat="@drawable/image_8" />
+
+    <ImageView
+        android:id="@+id/ivForum"
+        android:layout_width="87dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEmergency"
+        app:srcCompat="@drawable/image_10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
