@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VetCare-MobileApp</string>
+    <string name="call_ambulance">Llamar Ambulancia</string>
+    <string name="emergency">Emergencia</string>
+    <string name="delivery_medicamento">Delivery Medicamento</string>
+    <string name="llamar_veterinario">Llamar Veterinario</string>
 </resources>

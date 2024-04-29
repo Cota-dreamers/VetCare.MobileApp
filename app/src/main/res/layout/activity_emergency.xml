@@ -2,45 +2,84 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/btVet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IU.EmergencyActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btCallVet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="157dp"
-        android:text="Button"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="160dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/llamar_veterinario"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btDeliveryM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="160dp"
-        android:text="Button"
+        android:background="#FFFFFF"
+        android:text="@string/delivery_medicamento"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btAmbulance" />
+
+    <ImageView
+        android:id="@+id/ivVetEmer"
+        android:layout_width="263dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="74dp"
+        android:src="@drawable/_mn8zfhssk4qsi4fiiysjqmvdxdljczdqlnbuwbhr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmergency" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btAmbulance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="162dp"
-        android:text="Button"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:background="#FFFFFF"
+        android:text="@string/call_ambulance"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCallVet" />
+
+    <TextView
+        android:id="@+id/tvEmergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="192dp"
+        android:text="@string/emergency"
+        android:textColor="#FF0000"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
