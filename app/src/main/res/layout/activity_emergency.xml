@@ -7,79 +7,81 @@
     android:layout_height="match_parent"
     tools:context=".IU.EmergencyActivity">
 
-    <Button
-        android:id="@+id/btCallVet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="384dp"
-        android:layout_marginEnd="160dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="@string/llamar_veterinario"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btDeliveryM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="160dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="@string/delivery_medicamento"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btAmbulance" />
-
-    <ImageView
-        android:id="@+id/ivVetEmer"
-        android:layout_width="263dp"
-        android:layout_height="230dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="74dp"
-        android:src="@drawable/_mn8zfhssk4qsi4fiiysjqmvdxdljczdqlnbuwbhr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmergency" />
+    <include layout="@layout/toolbar"/>
 
     <Button
         android:id="@+id/btAmbulance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="160dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#BF2323"
         android:text="@string/call_ambulance"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btCallVet" />
+
+    <Button
+        android:id="@+id/btCallVet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="160dp"
+        android:backgroundTint="#BF2323"
+        android:text="@string/llamar_veterinario"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imEmer" />
+
+    <Button
+        android:id="@+id/btDeliveryM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="160dp"
+        android:backgroundTint="#BF2323"
+        android:text="@string/delivery_medicamento"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btAmbulance" />
 
     <TextView
         android:id="@+id/tvEmergency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="192dp"
         android:text="@string/emergency"
         android:textColor="#FF0000"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imEmer"
+        android:layout_width="184dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmergency"
+        app:srcCompat="@drawable/image_7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

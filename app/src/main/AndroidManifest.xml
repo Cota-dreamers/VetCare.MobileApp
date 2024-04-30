@@ -13,6 +13,12 @@
         android:theme="@style/Theme.VetCareMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".IU.conf_users"
+            android:exported="false" />
+        <activity
+            android:name=".prueba"
+            android:exported="false" />
+        <activity
             android:name=".IU.EmergencyActivity"
             android:exported="false" />
         <activity
