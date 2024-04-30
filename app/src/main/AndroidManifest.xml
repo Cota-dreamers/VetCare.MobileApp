@@ -13,10 +13,19 @@
         android:theme="@style/Theme.VetCareMobileApp"
         tools:targetApi="31">
         <activity
-            android:name=".IU.EmergencyActivity"
+            android:name=".IU.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IU.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".IU.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IU.EmergencyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IU.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
