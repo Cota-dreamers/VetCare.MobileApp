@@ -4,4 +4,21 @@
     <string name="emergency">Emergencia</string>
     <string name="delivery_medicamento">Delivery Medicamento</string>
     <string name="llamar_veterinario">Llamar Veterinario</string>
+    <string name="nombrecompleto">nombrecompleto</string>
+    <string name="numero">Numero</string>
+    <string name="gmail">Gmail</string>
+    <string name="rol">Rol</string>
+    <string name="mascota">Mascota</string>
+    <string name="nombre_mas">Nombre Mas.</string>
+    <string name="cuenta_basica">cuenta_basica</string>
+    <string name="llamar_ambulancia">Llamar Ambulancia</string>
+    <string name="que_desea_realizar_hoy">Que desea realizar hoy ?</string>
+    <string name="ubica_tu_veterinario">Ubica tu veterinario</string>
+    <string name="consultas_medicas">Consultas Medicas</string>
+    <string name="consejos_del_veterinario">Consejos del Veterinario</string>
+    <string name="emergencia">Emergencia</string>
+    <string name="tienda_de_juguetes">Tienda de Juguetes</string>
+    <string name="foro_comunitario">Foro Comunitario</string>
+    <string name="escribe_el_tema">Escribe el tema</string>
+    <string name="escribe_el_tema_que_quieras_buscar">Escribe el tema que quieras buscar</string>
 </resources>

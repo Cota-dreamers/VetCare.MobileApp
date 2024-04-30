@@ -6,65 +6,151 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IU.MainActivity">
+    <include layout="@layout/toolbar"/>
 
     <ImageView
         android:id="@+id/ivAppointment"
-        android:layout_width="86dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="123dp"
-        android:layout_marginEnd="75dp"
+        android:layout_width="115dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="152dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_10" />
 
     <ImageView
-        android:id="@+id/ivAdvice"
-        android:layout_width="94dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivUbication"
-        app:srcCompat="@drawable/image_6" />
-
-    <ImageView
         android:id="@+id/ivUbication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="118dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_4" />
 
     <ImageView
         android:id="@+id/ivEmergency"
-        android:layout_width="88dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="75dp"
+        android:layout_width="115dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="332dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAppointment"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_7" />
 
     <ImageView
-        android:id="@+id/ivShop"
-        android:layout_width="94dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/ivAdvice"
+        android:layout_width="114dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="332dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAdvice"
-        app:srcCompat="@drawable/image_8" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_6" />
+
+    <TextView
+        android:id="@+id/txbienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="@string/que_desea_realizar_hoy"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="txBienvenida" />
 
     <ImageView
-        android:id="@+id/ivForum"
-        android:layout_width="87dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="75dp"
+        android:id="@+id/ivComunity"
+        android:layout_width="116dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="516dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivEmergency"
-        app:srcCompat="@drawable/image_10" />
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_9" />
+
+    <ImageView
+        android:id="@+id/ivShop"
+        android:layout_width="114dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="516dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_8" />
+
+    <TextView
+        android:id="@+id/txubic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/ubica_tu_veterinario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUbication" />
+
+    <TextView
+        android:id="@+id/txconsult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/consultas_medicas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.794"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAppointment" />
+
+    <TextView
+        android:id="@+id/txconse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/consejos_del_veterinario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAdvice" />
+
+    <TextView
+        android:id="@+id/txemer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/emergencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEmergency" />
+
+    <TextView
+        android:id="@+id/txtienda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tienda_de_juguetes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivShop" />
+
+    <TextView
+        android:id="@+id/txforo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/foro_comunitario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivComunity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

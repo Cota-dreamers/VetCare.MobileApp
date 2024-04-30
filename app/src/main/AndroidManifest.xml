@@ -13,6 +13,12 @@
         android:theme="@style/Theme.VetCareMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".IU.ConsultMedic"
+            android:exported="false" />
+        <activity
+            android:name=".IU.ProfileUser"
+            android:exported="false" />
+        <activity
             android:name=".IU.RegisterActivity"
             android:exported="false" />
         <activity
