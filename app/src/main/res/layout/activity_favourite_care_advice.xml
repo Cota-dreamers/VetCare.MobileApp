@@ -8,7 +8,7 @@
     tools:context=".activities.FavouriteCareAdviceActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFavourite"
+        android:id="@+id/rvFavouriteCareAdvice"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"

@@ -21,6 +21,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         val ivEmergency = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivEmergency)
+        val ivAdvice = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAdvice)
+
+
+        ivAdvice.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+            val intent = Intent(
+                this@MainActivity,
+                ListCareAdviceActivity::class.java
+            )
+            // Iniciar la actividad ListCareAdviceActivity
+            startActivity(intent)
+        }
 
         ivEmergency.setOnClickListener { // Crear un Intent para iniciar EmergencyActivity
             val intent = Intent(

@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CareAdviceService {
-    @GET("careadvices")
+    @GET("careadvice")
     fun getAllCareAdvices(): Call<ApiResponse>
 }
