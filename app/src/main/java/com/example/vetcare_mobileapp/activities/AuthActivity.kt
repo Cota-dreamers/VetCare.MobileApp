@@ -1,4 +1,4 @@
-package com.example.vetcare_mobileapp.IU
+package com.example.vetcare_mobileapp.activities
 
 import android.content.Intent
 import android.os.Bundle

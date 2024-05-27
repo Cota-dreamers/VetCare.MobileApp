@@ -5,7 +5,7 @@
     android:id="@+id/btVet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IU.EmergencyActivity">
+    tools:context=".activities.EmergencyActivity">
 
     <include layout="@layout/toolbar"/>
 

@@ -1,37 +1,34 @@
-package com.example.vetcare_mobileapp.IU
+package com.example.vetcare_mobileapp.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.vetcare_mobileapp.R
 
-
-class MainActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(com.example.vetcare_mobileapp.R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(com.example.vetcare_mobileapp.R.id.btVet)) { v, insets ->
+        setContentView(R.layout.activity_register)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val ivEmergency = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivEmergency)
+        val btIngresar = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btRegister)
 
-        ivEmergency.setOnClickListener { // Crear un Intent para iniciar EmergencyActivity
+        btIngresar.setOnClickListener { // Crear un Intent para iniciar
             val intent = Intent(
-                this@MainActivity,
-                EmergencyActivity::class.java
+                this@RegisterActivity,
+                MainActivity::class.java
             )
-            // Iniciar la actividad EmergencyActivity
+            // Iniciar la actividad
             startActivity(intent)
         }
-
-
     }
-
 }

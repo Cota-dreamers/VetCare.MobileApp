@@ -21,4 +21,6 @@
     <string name="foro_comunitario">Foro Comunitario</string>
     <string name="escribe_el_tema">Escribe el tema</string>
     <string name="escribe_el_tema_que_quieras_buscar">Escribe el tema que quieras buscar</string>
+    <string name="agregar_a_favoritos">Agregar a favoritos</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

@@ -1,0 +1,35 @@
+{
+  "careadvice": [
+    {
+      "id": 1,
+      "strAdviceThumb": "https://www.iberdrola.com/documents/20125/39802/Mascotas_746x419.jpg/091c3a08-9270-8476-3534-7426d0b4c245?t=1626339906435",
+      "strAdvice": "Cuidado para tu salud",
+      "strAdviceCategory": "Salud",
+      "strAdviceDescription": "Cuidado para tu salud"
+    },
+    {
+      "id": 2,
+      "strAdviceThumb": "https://assets.saposyprincesas.com/2022/01/apps-de-perros.jpg",
+      "strAdvice": "Cuidado para tu salud",
+      "strAdviceCategory": "Salud",
+      "strAdviceDescription": "Cuidado para tu salud"
+    },
+    {
+      "id": 3,
+      "strAdviceThumb": "https://www.lavanguardia.com/andro4all/hero/2021/09/8-aplicaciones-que-debes-instalar-en-tu-movil-si-tienes-perro.jpg?width=1200",
+      "strAdvice": "Cuidado para tu salud",
+      "strAdviceCategory": "Salud",
+      "strAdviceDescription": "Cuidado para tu salud"
+    }
+  ],
+  "petadvice": [
+    {
+      "id": 1,
+      "content": "Cuidado para tu mascota"
+    },
+    {
+      "id": 2,
+      "content": "Más consejos para mascotas"
+    }
+  ]
+}
