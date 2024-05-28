@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vetcare_mobileapp.R
 import com.example.vetcare_mobileapp.db.CareAdviceDao
 import com.example.vetcare_mobileapp.models.CareAdvice
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +26,7 @@ class CareAdviceFavouriteAdapter (
 
     class FavouriteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val careAdviceName: TextView = itemView.findViewById(R.id.tvName)
+        val careAdviceImage: ImageView = itemView.findViewById(R.id.ivPhoto)
         val bt_Delete: Button = itemView.findViewById(R.id.btDelete)
     }
 
@@ -36,10 +39,13 @@ class CareAdviceFavouriteAdapter (
         if (careadvices.isEmpty()) {
             Toast.makeText(context, "No hay favoritos", Toast.LENGTH_SHORT).show()
             holder.careAdviceName.visibility = View.GONE
+            holder.careAdviceImage.visibility = View.GONE
             holder.bt_Delete.visibility = View.GONE
         } else {
             val careAdvice = careadvices[position]
             holder.careAdviceName.text = careAdvice.strAdvice
+
+            Picasso.get().load(careAdvice.strAdviceThumb).into(holder.careAdviceImage)
 
             holder.bt_Delete.setOnClickListener {
                CoroutineScope(Dispatchers.IO).launch {

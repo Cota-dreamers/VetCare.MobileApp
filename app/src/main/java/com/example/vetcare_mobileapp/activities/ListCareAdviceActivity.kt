@@ -1,7 +1,9 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +27,9 @@ class ListCareAdviceActivity : AppCompatActivity() {
     private lateinit var careAdviceAdapter: CareAdviceAdapter
     private lateinit var careAdviceRecyclerView: RecyclerView
     private lateinit var careAdviceDao: CareAdviceDao
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_care_advice)
@@ -44,6 +49,11 @@ class ListCareAdviceActivity : AppCompatActivity() {
 
         getCareAdvices(careAdviceDao)
 
+        val favouriteCareAdviceButton = findViewById<Button>(R.id.bn_FavouriteAdvice)
+        favouriteCareAdviceButton.setOnClickListener {
+            val intent = Intent(this, FavouriteCareAdviceActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getCareAdvices(careAdviceDao: CareAdviceDao) {

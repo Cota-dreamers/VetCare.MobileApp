@@ -138,7 +138,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/tienda_de_juguetes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintHorizontal_bias="0.282"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivShop" />
 

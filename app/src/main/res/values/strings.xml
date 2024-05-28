@@ -17,7 +17,7 @@
     <string name="consultas_medicas">Consultas Medicas</string>
     <string name="consejos_del_veterinario">Consejos del Veterinario</string>
     <string name="emergencia">Emergencia</string>
-    <string name="tienda_de_juguetes">Tienda de Juguetes</string>
+    <string name="tienda_de_juguetes">Tienda</string>
     <string name="foro_comunitario">Foro Comunitario</string>
     <string name="escribe_el_tema">Escribe el tema</string>
     <string name="escribe_el_tema_que_quieras_buscar">Escribe el tema que quieras buscar</string>
@@ -25,4 +25,7 @@
     <string name="eliminar">Eliminar</string>
     <string name="advice">Consejos para el Cuidado</string>
     <string name="agregar_a_carrito">Agregar al carrito</string>
+    <string name="precio">Precio:</string>
+    <string name="descripci_n">Descripción:</string>
+    <string name="stock">Stock:</string>
 </resources>
