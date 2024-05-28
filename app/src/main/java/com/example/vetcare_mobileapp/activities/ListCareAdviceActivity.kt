@@ -2,20 +2,19 @@ package com.example.vetcare_mobileapp.activities
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.vetcare_mobileapp.R
 import com.example.vetcare_mobileapp.adapters.CareAdviceAdapter
-import com.example.vetcare_mobileapp.communication.ApiResponse
+import com.example.vetcare_mobileapp.communication.CareAdviceResponse
 import com.example.vetcare_mobileapp.db.AppDatabase
 import com.example.vetcare_mobileapp.db.CareAdviceDao
 import com.example.vetcare_mobileapp.network.CareAdviceService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,31 +48,37 @@ class ListCareAdviceActivity : AppCompatActivity() {
 
     private fun getCareAdvices(careAdviceDao: CareAdviceDao) {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:3000/")
+            .baseUrl("https://vetcare2.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val careAdviceService = retrofit.create(CareAdviceService::class.java)
         val call = careAdviceService.getAllCareAdvices()
 
-        call.enqueue(object: Callback<ApiResponse>{
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                if(response.isSuccessful){
-                    val careAdvices = response.body()?.careadvices
-                    careAdviceAdapter.careadvices = careAdvices ?: listOf()
-                    careAdviceAdapter.notifyDataSetChanged()
+        call.enqueue(object: Callback<List<CareAdviceResponse>> {
+            override fun onResponse(call: Call<List<CareAdviceResponse>>, response: Response<List<CareAdviceResponse>>) {
+                if (response.isSuccessful) {
+                    val careAdviceResponses = response.body()
+                    careAdviceResponses?.let {
+                        // Update your RecyclerView
+                        careAdviceAdapter.careadvices = it.map { careAdviceResponse ->
+                            careAdviceResponse.toCareAdvice()
+                        }
+                        careAdviceAdapter.notifyDataSetChanged()
 
-                }else{
-                    val errorMessage = "Error: ${response.errorBody()}"
-                    Toast.makeText(this@ListCareAdviceActivity, errorMessage, Toast.LENGTH_SHORT).show()
-                    Log.e("Error del API", errorMessage)
+                        // Save data in local database
+                        CoroutineScope(Dispatchers.IO).launch {
+                            careAdviceAdapter.careadvices = it.map { careAdviceResponse ->
+                                careAdviceResponse.toCareAdvice()
+                            }.toList()
+                        }
+                    }
+                } else {
+                    Log.e("ListCareAdviceActivity", "Error: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                val errorMessage = "Error: ${t.message}"
-                Toast.makeText(this@ListCareAdviceActivity, errorMessage, Toast.LENGTH_SHORT).show()
-                Log.e("Error del API", errorMessage)
+            override fun onFailure(call: Call<List<CareAdviceResponse>>, t: Throwable) {
+                Log.e("ListCareAdviceActivity", "Error: ${t.message}")
             }
         })
-    }
-}
+    }}
