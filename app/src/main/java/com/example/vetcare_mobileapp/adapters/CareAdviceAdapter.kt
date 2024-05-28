@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CareAdviceAdapter(
+class   CareAdviceAdapter(
     var careadvices: List<CareAdvice>,
     private val context: Context,
     private val CareAdviceDao: CareAdviceDao

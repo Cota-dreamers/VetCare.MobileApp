@@ -24,4 +24,5 @@
     <string name="agregar_a_favoritos">Agregar a favoritos</string>
     <string name="eliminar">Eliminar</string>
     <string name="advice">Consejos para el Cuidado</string>
+    <string name="agregar_a_carrito">Agregar al carrito</string>
 </resources>
