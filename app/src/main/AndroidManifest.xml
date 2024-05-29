@@ -28,7 +28,7 @@
             android:name=".activities.FavouriteCareAdviceActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ConsultMedic"
+            android:name=".activities.ConsultMedicActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ProfileUser"
