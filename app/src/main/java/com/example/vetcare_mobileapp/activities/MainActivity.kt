@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,32 +25,27 @@ class MainActivity : AppCompatActivity() {
         val ivShop = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivShop)
         val ivUbication = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivUbication)
 
-        ivAdvice.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+        ivAdvice.setOnClickListener {
             val intent = Intent(
                 this@MainActivity,
                 ListCareAdviceActivity::class.java
             )
-            // Iniciar la actividad ListCareAdviceActivity
             startActivity(intent)
         }
 
-
-        ivUbication.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+        ivUbication.setOnClickListener {
             val intent = Intent(
                 this@MainActivity,
                 MapsUbication::class.java
             )
-            // Iniciar la actividad ListCareAdviceActivity
             startActivity(intent)
         }
 
-
-        ivEmergency.setOnClickListener { // Crear un Intent para iniciar EmergencyActivity
+        ivEmergency.setOnClickListener {
             val intent = Intent(
                 this@MainActivity,
                 EmergencyActivity::class.java
             )
-            // Iniciar la actividad EmergencyActivity
             startActivity(intent)
         }
 
@@ -61,9 +56,5 @@ class MainActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
-
-
-
     }
-
 }
