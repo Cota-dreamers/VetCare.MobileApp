@@ -22,12 +22,11 @@ class RegisterActivity : AppCompatActivity() {
 
         val btIngresar = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btRegister)
 
-        btIngresar.setOnClickListener { // Crear un Intent para iniciar
+        btIngresar.setOnClickListener {
             val intent = Intent(
                 this@RegisterActivity,
-                MainActivity::class.java
+                LoginActivity::class.java
             )
-            // Iniciar la actividad
             startActivity(intent)
         }
     }
