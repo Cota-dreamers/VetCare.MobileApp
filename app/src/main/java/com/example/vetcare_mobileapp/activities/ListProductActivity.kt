@@ -1,5 +1,6 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -32,6 +33,7 @@ class ListProductActivity : AppCompatActivity() {
     private lateinit var productAdapter: ProductAdapter
     private lateinit var productRecyclerView: RecyclerView
     private lateinit var productDao: ProductDao
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_product)
