@@ -28,7 +28,7 @@
             android:paddingTop="8dp" />
 
         <TextView
-            android:id="@+id/tvCategory"
+            android:id="@+id/tvDescriptionf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp" />

@@ -26,7 +26,7 @@ class   CareAdviceAdapter(
         inner class CareAdviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val careAdviceName: TextView = itemView.findViewById(R.id.tvName)
             val careAdviceImage: ImageView = itemView.findViewById(R.id.ivPhoto)
-            val careAdviceCategory: TextView = itemView.findViewById(R.id.tvCategory)
+            val careAdviceCategory: TextView = itemView.findViewById(R.id.tvDescriptionf)
             val careAdviceDescription: TextView = itemView.findViewById(R.id.tvDescription)
             val favouriteButton: Button = itemView.findViewById(R.id.btAdd)
         }

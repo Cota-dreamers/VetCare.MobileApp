@@ -1,7 +1,9 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -48,6 +50,14 @@ class ListProductActivity : AppCompatActivity() {
         productRecyclerView.adapter = productAdapter
 
         getProducts(productDao)
+
+        val favouriteProductButton = findViewById<Button>(R.id.bn_FavouriteProduct)
+        favouriteProductButton.setOnClickListener {
+          val intent = Intent(this, CartProductActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     private fun getProducts(productDao: ProductDao){

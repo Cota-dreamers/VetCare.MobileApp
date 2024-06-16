@@ -28,7 +28,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvCategory"
+            android:id="@+id/tvDescriptionf"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
             android:textSize="14sp" />
