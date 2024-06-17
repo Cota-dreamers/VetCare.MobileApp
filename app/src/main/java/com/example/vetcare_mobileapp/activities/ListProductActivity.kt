@@ -20,6 +20,7 @@ import com.example.vetcare_mobileapp.communication.ProductResponse
 import com.example.vetcare_mobileapp.db.AppDatabase
 import com.example.vetcare_mobileapp.db.AppDatabase2
 import com.example.vetcare_mobileapp.db.ProductDao
+import com.example.vetcare_mobileapp.models.Product
 import com.example.vetcare_mobileapp.network.ProductService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +36,8 @@ class ListProductActivity : AppCompatActivity() {
     private lateinit var productAdapter: ProductAdapter
     private lateinit var productRecyclerView: RecyclerView
     private lateinit var productDao: ProductDao
-    @SuppressLint("SuspiciousIndentation")
+    private var allProducts: List<Product> = listOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_product)
@@ -50,21 +52,29 @@ class ListProductActivity : AppCompatActivity() {
         productRecyclerView = findViewById(R.id.rvProductList)
         productRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        productAdapter = ProductAdapter(listOf(),this,productDao)
+        productAdapter = ProductAdapter(listOf(), this, productDao)
         productRecyclerView.adapter = productAdapter
 
         getProducts(productDao)
 
         val favouriteProductButton = findViewById<ImageButton>(R.id.bn_FavouriteProduct)
         favouriteProductButton.setOnClickListener {
-          val intent = Intent(this, CartProductActivity::class.java)
+            val intent = Intent(this, CartProductActivity::class.java)
             startActivity(intent)
         }
 
+        val comidaButton = findViewById<Button>(R.id.bn_Comida)
+        val juguetesButton = findViewById<Button>(R.id.bn_Juguetes)
+        val accesoriosButton = findViewById<Button>(R.id.bn_Accesorios)
+        val clearFiltersButton = findViewById<ImageButton>(R.id.bn_ClearFilters)
 
+        comidaButton.setOnClickListener { filterProducts("Comida") }
+        juguetesButton.setOnClickListener { filterProducts("Juguetes") }
+        accesoriosButton.setOnClickListener { filterProducts("Accesorios") }
+        clearFiltersButton.setOnClickListener { clearFilters() }
     }
 
-    private fun getProducts(productDao: ProductDao){
+    private fun getProducts(productDao: ProductDao) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://vetcare2.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -72,32 +82,42 @@ class ListProductActivity : AppCompatActivity() {
         val productService = retrofit.create(ProductService::class.java)
         val call = productService.getAllProducts()
 
-        call.enqueue(object: Callback<List<ProductResponse>> {
-            override fun onResponse(call: Call<List<ProductResponse>>, response: Response<List<ProductResponse>>){
-                if (response.isSuccessful){
+        call.enqueue(object : Callback<List<ProductResponse>> {
+            override fun onResponse(call: Call<List<ProductResponse>>, response: Response<List<ProductResponse>>) {
+                if (response.isSuccessful) {
                     val productResponses = response.body()
                     productResponses?.let {
-
-                        productAdapter.products = it.map { productResponse ->
+                        allProducts = it.map { productResponse ->
                             productResponse.toProduct()
                         }
+                        productAdapter.products = allProducts
                         productAdapter.notifyDataSetChanged()
 
                         CoroutineScope(Dispatchers.IO).launch {
-                            productAdapter.products = it.map { productResponse ->
-                                productResponse.toProduct()
-                            }.toList()
+                            productAdapter.products = allProducts
+                        }
                     }
+                } else {
+                    Log.e("ListProductActivity", "Error: ${response.code()}")
                 }
-            } else {
-                Log.e("ListProductActivity", "Error: ${response.code()}")
-                }
+            }
+
+            override fun onFailure(call: Call<List<ProductResponse>>, t: Throwable) {
+                Log.e("ListProductActivity", "Error: ${t.message}")
+            }
+        })
+    }
+
+    private fun filterProducts(filter: String) {
+        val filteredProducts = allProducts.filter { product ->
+            product.description.contains(filter, ignoreCase = true)
         }
+        productAdapter.products = filteredProducts
+        productAdapter.notifyDataSetChanged()
+    }
 
-
-
-        override fun onFailure(call: Call<List<ProductResponse>>, t: Throwable) {
-            Log.e("ListProductActivity", "Error: ${t.message}")
-        }
-    })
-}}
+    private fun clearFilters() {
+        productAdapter.products = allProducts
+        productAdapter.notifyDataSetChanged()
+    }
+}
