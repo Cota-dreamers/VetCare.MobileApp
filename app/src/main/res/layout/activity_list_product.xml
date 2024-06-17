@@ -7,16 +7,78 @@
     android:layout_height="match_parent"
     tools:context=".activities.ListProductActivity">
 
+
+    <ImageButton
+        android:id="@+id/bn_ClearFilters"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/clear_filters"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_clear"
+        app:layout_constraintEnd_toStartOf="@id/bn_FavouriteProduct"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
+        android:id="@+id/bn_Comida"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background"
+        android:padding="10dp"
+        android:text="Comida"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/bn_ClearFilters"
+        app:layout_constraintEnd_toStartOf="@id/bn_ClearFilters"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bn_Juguetes"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background"
+        android:padding="10dp"
+        android:text="Juguetes"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/bn_ClearFilters"
+        app:layout_constraintEnd_toStartOf="@id/bn_Comida"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bn_Accesorios"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background"
+        android:padding="10dp"
+        android:text="Accesorios"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/bn_ClearFilters"
+        app:layout_constraintEnd_toStartOf="@id/bn_Juguetes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
         android:id="@+id/bn_FavouriteProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="316dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:text="@string/cart"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/cart"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_shopping_cart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView

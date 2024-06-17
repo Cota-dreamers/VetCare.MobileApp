@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -53,7 +55,7 @@ class ListProductActivity : AppCompatActivity() {
 
         getProducts(productDao)
 
-        val favouriteProductButton = findViewById<Button>(R.id.bn_FavouriteProduct)
+        val favouriteProductButton = findViewById<ImageButton>(R.id.bn_FavouriteProduct)
         favouriteProductButton.setOnClickListener {
           val intent = Intent(this, CartProductActivity::class.java)
             startActivity(intent)
