@@ -30,4 +30,5 @@
     <string name="stock">Stock:</string>
     <string name="cart">Cart</string>
     <string name="clear_filters">Clear\n</string>
+    <string name="add_product">Add product</string>
 </resources>

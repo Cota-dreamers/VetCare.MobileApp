@@ -22,6 +22,7 @@ import com.example.vetcare_mobileapp.db.AppDatabase2
 import com.example.vetcare_mobileapp.db.ProductDao
 import com.example.vetcare_mobileapp.models.Product
 import com.example.vetcare_mobileapp.network.ProductService
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -72,6 +73,13 @@ class ListProductActivity : AppCompatActivity() {
         juguetesButton.setOnClickListener { filterProducts("Juguetes") }
         accesoriosButton.setOnClickListener { filterProducts("Accesorios") }
         clearFiltersButton.setOnClickListener { clearFilters() }
+
+        val fabAddProduct = findViewById<FloatingActionButton>(R.id.fab_add_product)
+        fabAddProduct.setOnClickListener {
+            val intent = Intent(this, AddProductActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun getProducts(productDao: ProductDao) {
@@ -120,4 +128,10 @@ class ListProductActivity : AppCompatActivity() {
         productAdapter.products = allProducts
         productAdapter.notifyDataSetChanged()
     }
+
+    override fun onResume() {
+        super.onResume()
+        getProducts(productDao)
+    }
+
 }
