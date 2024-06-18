@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         ivAppointment.setOnClickListener { // Crear un Intent para iniciar ConsultMedicActivity
-            android.widget.Toast.makeText(this, "Image 10 clicked", android.widget.Toast.LENGTH_SHORT).show()
+            android.widget.Toast.makeText(this, "image_10 clicked", android.widget.Toast.LENGTH_SHORT).show()
             val intent = Intent(
                 this@MainActivity,
                 ConsultMedicActivity::class.java

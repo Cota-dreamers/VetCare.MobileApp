@@ -45,6 +45,5 @@ class FavouriteCareAdviceActivity : AppCompatActivity() {
                 careAdviceRecyclerView.adapter = favouriteAdapter
             }
         }
-
     }
 }
