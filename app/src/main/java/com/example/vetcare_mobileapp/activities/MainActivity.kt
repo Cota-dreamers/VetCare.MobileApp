@@ -2,6 +2,7 @@ package com.example.vetcare_mobileapp.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         ivAdvice.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
             val intent = Intent(
-                this@MainActivity,
+                this,
                 ListCareAdviceActivity::class.java
             )
             // Iniciar la actividad ListCareAdviceActivity
@@ -44,13 +45,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        ivShop.setOnClickListener{
-            val intent = Intent(
-                this@MainActivity,
-                ListProductActivity::class.java
-            )
-            startActivity(intent)
-        }
 
         ivAppointment.setOnClickListener { // Crear un Intent para iniciar ConsultMedicActivity
             android.widget.Toast.makeText(this, "image_10 clicked", android.widget.Toast.LENGTH_SHORT).show()
@@ -69,7 +63,6 @@ class MainActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
-
 
 
     }
