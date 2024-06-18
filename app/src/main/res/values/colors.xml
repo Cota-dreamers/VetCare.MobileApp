@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="buttonEmergency">#FFFFFFFF</color>
     <color name="button_background_color">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
 </resources>
