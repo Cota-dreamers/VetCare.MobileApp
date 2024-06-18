@@ -40,4 +40,8 @@
     <string name="nombre_de_mascota">nombre_de_mascota</string>
     <string name="apellido">apellido</string>
     <string name="nombre">nombre</string>
+    <string name="forum">Forum</string>
+    <string name="destacado">Destacado</string>
+    <string name="reciente">Reciente</string>
+    <string name="nuevo">Nuevo</string>
 </resources>

@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val ivAdvice = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAdvice)
         val ivShop = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivShop)
         val ivAppointment = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAppointment)
+        val ivComunity = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivComunity)
 
         ivAdvice.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
             val intent = Intent(
@@ -58,6 +59,14 @@ class MainActivity : AppCompatActivity() {
                 ConsultMedicActivity::class.java
             )
             // Iniciar la actividad ConsultMedicActivity
+            startActivity(intent)
+        }
+
+        ivComunity.setOnClickListener{
+            val intent = Intent(
+                this@MainActivity,
+                ForumActivity::class.java
+            )
             startActivity(intent)
         }
 
