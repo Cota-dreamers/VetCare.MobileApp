@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.BookAppointmentActivity">
 
     <include
         android:id="@+id/include"
@@ -134,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:text="Raza"
+        android:text="@string/raza"
         android:textColor="#0D96A1"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,10 +160,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#0D96A1"
-        android:text="Guardar"
+        android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.979" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="598dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

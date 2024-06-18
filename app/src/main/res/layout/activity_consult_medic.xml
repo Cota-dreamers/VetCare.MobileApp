@@ -2,23 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/btVet"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.ConsultMedicActivity">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
     <ImageView
         android:id="@+id/imCita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357"
+        app:layout_constraintVertical_bias="0.356"
         app:srcCompat="@drawable/cita" />
 
     <ImageView
@@ -28,24 +27,11 @@
         android:layout_marginStart="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.356"
         app:srcCompat="@drawable/reserva" />
-
-    <TextView
-        android:id="@+id/tvConsultasMedicas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/citas_y_consultas"
-        android:textColor="#0D96A1"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="128dp"
-        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imPreguntas"
@@ -63,10 +49,10 @@
         android:id="@+id/btReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#0D96A1"
-        android:text="Reservar cita"
+        android:text="@string/reservar_cita"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imReserva" />
 
@@ -76,11 +62,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="44dp"
         android:backgroundTint="#0D96A1"
-        android:text="Mis citas"
+        android:text="@string/mis_citas"
         app:layout_constraintBottom_toTopOf="@+id/imPreguntas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imCita"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.393" />
 
     <Button
         android:id="@+id/btAsistencia"
@@ -89,7 +75,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginBottom="60dp"
         android:backgroundTint="#0D96A1"
-        android:text="Asistencia"
+        android:text="@string/asistencia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imAsistencia"
@@ -101,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
         android:backgroundTint="#0D96A1"
-        android:text="FAQ"
+        android:text="@string/faq"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imPreguntas"
@@ -117,6 +103,22 @@
         app:layout_constraintTop_toBottomOf="@+id/imReserva"
         app:layout_constraintVertical_bias="0.372"
         app:srcCompat="@drawable/help" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/citas_y_consultas"
+        android:textColor="#0D96A1"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
