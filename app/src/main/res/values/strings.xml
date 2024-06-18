@@ -35,4 +35,9 @@
     <string name="asistencia">Asistencia</string>
     <string name="faq">FAQ</string>
     <string name="citas_y_consultas">Citas y consultas</string>
+    <string name="agendar_cita">Texto para Agendar Cita</string>
+    <string name="email">email</string>
+    <string name="nombre_de_mascota">nombre_de_mascota</string>
+    <string name="apellido">apellido</string>
+    <string name="nombre">nombre</string>
 </resources>

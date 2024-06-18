@@ -46,6 +46,9 @@
             android:name=".activities.EmergencyActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.BookAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AuthActivity"
             android:exported="true" >
             <intent-filter>
