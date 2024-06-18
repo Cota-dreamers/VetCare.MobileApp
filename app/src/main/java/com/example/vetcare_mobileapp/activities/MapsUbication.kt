@@ -1,6 +1,8 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.vetcare_mobileapp.R
@@ -37,6 +39,16 @@ class MapsUbication : AppCompatActivity(), OnMapReadyCallback {
 
         createFragment()
         setupRetrofit()
+
+        val btnreser = findViewById<Button>(R.id.btreser)
+        btnreser.setOnClickListener {
+            goToCreateAppointment()
+        }
+    }
+
+    private fun goToCreateAppointment(){
+        val i = Intent(this,BookAppointmentActivity::class.java)
+        startActivity(i)
     }
 
     private fun createFragment(){
