@@ -49,6 +49,9 @@
             android:name=".activities.BookAppointmentActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.ForumActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AuthActivity"
             android:exported="true" >
             <intent-filter>
