@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         val ivAdvice = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAdvice)
         val ivShop = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivShop)
         val ivUbication = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivUbication)
+        val ivAppointment = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAppointment)
+        val ivComunity = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivComunity)
 
         ivAdvice.setOnClickListener {
             val intent = Intent(
@@ -56,5 +58,24 @@ class MainActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
+
+        ivAppointment.setOnClickListener { // Crear un Intent para iniciar ConsultMedicActivity
+            android.widget.Toast.makeText(this, "image_10 clicked", android.widget.Toast.LENGTH_SHORT).show()
+            val intent = Intent(
+                this@MainActivity,
+                ConsultMedicActivity::class.java
+            )
+            // Iniciar la actividad ConsultMedicActivity
+            startActivity(intent)
+        }
+
+        ivComunity.setOnClickListener{
+            val intent = Intent(
+                this@MainActivity,
+                ForumActivity::class.java
+            )
+            startActivity(intent)
+        }
+
     }
 }

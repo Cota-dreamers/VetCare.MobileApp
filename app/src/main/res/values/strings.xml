@@ -31,4 +31,20 @@
     <string name="cart">Cart</string>
     <string name="clear_filters">Clear\n</string>
     <string name="add_product">Add product</string>
+    <string name="guardar">Guardar</string>
+    <string name="raza">Raza</string>
+    <string name="reservar_cita">Reservar cita</string>
+    <string name="mis_citas">Mis citas</string>
+    <string name="asistencia">Asistencia</string>
+    <string name="faq">FAQ</string>
+    <string name="citas_y_consultas">Citas y consultas</string>
+    <string name="agendar_cita">Texto para Agendar Cita</string>
+    <string name="email">email</string>
+    <string name="nombre_de_mascota">nombre_de_mascota</string>
+    <string name="apellido">apellido</string>
+    <string name="nombre">nombre</string>
+    <string name="forum">Forum</string>
+    <string name="destacado">Destacado</string>
+    <string name="reciente">Reciente</string>
+    <string name="nuevo">Nuevo</string>
 </resources>
