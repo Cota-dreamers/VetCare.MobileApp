@@ -59,9 +59,7 @@
         <activity
             android:name=".activities.EmergencyActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.BookAppointmentActivity"
-            android:exported="false" />
+
         <activity
             android:name=".activities.ForumActivity"
             android:exported="false" />
