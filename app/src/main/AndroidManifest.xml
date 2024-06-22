@@ -48,6 +48,9 @@
             android:name=".activities.ProfileUser"
             android:exported="false" />
         <activity
+            android:name=".activities.ProfilePet"
+            android:exported="false" />
+        <activity
             android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
@@ -59,9 +62,11 @@
         <activity
             android:name=".activities.EmergencyActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.ForumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NewPostActivity"
             android:exported="false" />
         <activity
             android:name=".activities.AuthActivity"

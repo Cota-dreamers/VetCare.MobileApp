@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,15 @@ class MainActivity : AppCompatActivity() {
         val ivUbication = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivUbication)
         val ivAppointment = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivAppointment)
         val ivComunity = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.ivComunity)
+        val ivToolbar = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.btconfig)
+
+        ivToolbar.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                ProfileUser::class.java
+            )
+            startActivity(intent)
+        }
 
         ivAdvice.setOnClickListener {
             val intent = Intent(

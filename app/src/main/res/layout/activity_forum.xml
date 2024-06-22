@@ -57,11 +57,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.152" />
 
-    <ListView
-        android:id="@+id/lvTopics"
-        android:layout_width="409dp"
-        android:layout_height="577dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="152dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="414dp"
+        android:layout_height="460dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
