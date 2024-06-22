@@ -70,4 +70,7 @@
     <string name="peso_mascota">peso mascota</string>
     <string name="tipo_mascota">tipo mascota</string>
     <string name="url_imagen_mascota">Url imagen mascota</string>
+    <string name="enviar">Enviar</string>
+    <string name="ingrese_su_consulta">Ingrese su consulta</string>
+    <string name="asistencia_usuario">Asistencia usuario</string>
 </resources>

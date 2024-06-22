@@ -69,6 +69,13 @@
             android:name=".activities.NewPostActivity"
             android:exported="false" />
         <activity
+            android:name=".AssistanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FAQActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".activities.AuthActivity"
             android:exported="true">
             <intent-filter>

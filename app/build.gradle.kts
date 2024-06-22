@@ -31,8 +31,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -52,6 +57,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.glide)
 
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("com.google.android.material:material:1.5.0-alpha05")
     implementation("androidx.core:core-ktx:1.3.2")
