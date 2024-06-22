@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.vetcare_mobileapp.AssistanceActivity
 import com.example.vetcare_mobileapp.R
 
 class ConsultMedicActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class ConsultMedicActivity : AppCompatActivity() {
 
         val btReserva = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btReserva)
         val imReserva = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.imReserva)
+        val btAsistencia = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btAsistencia)
+        val imAsistencia = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.imAsistencia)
 
         btReserva.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
             val intent = Intent(
@@ -37,6 +40,24 @@ class ConsultMedicActivity : AppCompatActivity() {
             val intent = Intent(
                 this@ConsultMedicActivity,
                 BookAppointmentActivity::class.java
+            )
+            // Iniciar la actividad ConsultMedicActivity
+            startActivity(intent)
+        }
+
+        btAsistencia.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+            val intent = Intent(
+                this@ConsultMedicActivity,
+                AssistanceActivity::class.java
+            )
+            // Iniciar la actividad ListCareAdviceActivity
+            startActivity(intent)
+        }
+
+        imAsistencia.setOnClickListener { // Crear un Intent para iniciar ConsultMedicActivity
+            val intent = Intent(
+                this@ConsultMedicActivity,
+                AssistanceActivity::class.java
             )
             // Iniciar la actividad ConsultMedicActivity
             startActivity(intent)
