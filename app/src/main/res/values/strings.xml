@@ -47,4 +47,27 @@
     <string name="destacado">Destacado</string>
     <string name="reciente">Reciente</string>
     <string name="nuevo">Nuevo</string>
+    <string name="date">Date</string>
+    <string name="contenido">Contenido</string>
+    <string name="autor">Autor</string>
+    <string name="publicar">Publicar</string>
+    <string name="perfil_de_mascota">Perfil de Mascota</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="agregar_publicacion">Agregar Publicacion</string>
+    <string name="title">title</string>
+    <string name="content">content</string>
+    <string name="author">author</string>
+    <string name="post_title">Title</string>
+    <string name="post_content">Content</string>
+    <string name="post_submit">Submit</string>
+    <string name="perfil_mascota">Perfil mascota</string>
+    <string name="name">Name</string>
+    <string name="correo">Correo</string>
+    <string name="agregar_producto">Agregar Producto</string>
+    <string name="guardar_mascota">Guardar mascota</string>
+    <string name="raza_mascota">raza mascota</string>
+    <string name="nombre_mascota">nombre mascota</string>
+    <string name="peso_mascota">peso mascota</string>
+    <string name="tipo_mascota">tipo mascota</string>
+    <string name="url_imagen_mascota">Url imagen mascota</string>
 </resources>

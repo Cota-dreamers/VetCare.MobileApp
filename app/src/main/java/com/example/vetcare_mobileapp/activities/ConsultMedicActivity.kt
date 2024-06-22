@@ -1,6 +1,9 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +19,27 @@ class ConsultMedicActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btReserva = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btReserva)
+        val imReserva = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.imReserva)
+
+        btReserva.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+            val intent = Intent(
+                this@ConsultMedicActivity,
+                BookAppointmentActivity::class.java
+            )
+            // Iniciar la actividad ListCareAdviceActivity
+            startActivity(intent)
+        }
+
+        imReserva.setOnClickListener { // Crear un Intent para iniciar ConsultMedicActivity
+            val intent = Intent(
+                this@ConsultMedicActivity,
+                BookAppointmentActivity::class.java
+            )
+            // Iniciar la actividad ConsultMedicActivity
+            startActivity(intent)
         }
     }
 }
