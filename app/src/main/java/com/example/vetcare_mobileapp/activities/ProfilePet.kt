@@ -1,5 +1,6 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -23,57 +24,40 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ProfilePet : AppCompatActivity() {
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-    private lateinit var petImageView: ImageView
-    private lateinit var imageUri: Uri
+class ProfilePet : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_profile_pet)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btVet)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val btAddPet = findViewById<Button>(R.id.btAddPet)
-        btAddPet.setOnClickListener {
-            val name = findViewById<EditText>(R.id.etNombreMascota).text.toString()
-            val breed = findViewById<EditText>(R.id.etRazaMascota).text.toString()
-            val weight = findViewById<EditText>(R.id.etPesoMascota).text.toString().toFloat()
-            val type = findViewById<EditText>(R.id.etTipoMascota).text.toString()
-            val photoUrl = findViewById<EditText>(R.id.etImagenMascota).text.toString()
+        val btnAddPet = findViewById<Button>(R.id.btnAddPet)
+        btnAddPet.setOnClickListener {
+            val name = findViewById<EditText>(R.id.etName).text.toString()
+            val breed = findViewById<EditText>(R.id.etBreed).text.toString()
+            val weight = findViewById<EditText>(R.id.etWeight).text.toString().toFloat()
+            val photoUrl = findViewById<EditText>(R.id.etImageUrl).text.toString()
+            val type = findViewById<EditText>(R.id.etType).text.toString()
+            val color = findViewById<EditText>(R.id.etColor).text.toString()
+
+            // Generar la fecha actual en el formato ISO 8601
+            val dateFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
+            val date = dateFormatter.format(Date())
 
             val newPet = Pet(
                 name = name,
                 breed = breed,
                 weight = weight,
+                photoUrl = photoUrl,
                 type = type,
-                photoUrl = photoUrl
+                color = color,
+                date = date
             )
             addPet(newPet)
 
-            petImageView.setOnClickListener {
-                selectImageFromGallery()
-            }
-
-        }
-    }
-
-    private fun selectImageFromGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        resultLauncher.launch(intent)
-    }
-
-    private val resultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
-            imageUri = result.data!!.data!!
-            petImageView.setImageURI(imageUri)
         }
     }
 
@@ -82,8 +66,8 @@ class ProfilePet : AppCompatActivity() {
             .baseUrl("https://vetcare2.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val productService = retrofit.create(PetService::class.java)
-        val call = productService.addPet(pet)
+        val petService = retrofit.create(PetService::class.java)
+        val call = petService.addPet(pet)
 
         call.enqueue(object : Callback<PetResponse> {
             override fun onResponse(call: Call<PetResponse>, response: Response<PetResponse>) {
@@ -96,9 +80,8 @@ class ProfilePet : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<PetResponse>, t: Throwable) {
-                Toast.makeText(this@ProfilePet, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ProfilePet, "Error: ${t.message}", Toast.LENGTH_SHORT). show()
             }
         })
     }
-
 }

@@ -8,6 +8,8 @@ class PetResponse(
     private var weight: Float,
     private var type: String,
     private var photoUrl: String,
+    private var color: String,
+    private var date: String,
 ) {
     fun toPet(): Pet {
         return Pet(
@@ -15,7 +17,9 @@ class PetResponse(
             breed = breed,
             weight = weight,
             type = type,
-            photoUrl = photoUrl
+            photoUrl = photoUrl,
+            color = color,
+            date = date
         )
     }
 }

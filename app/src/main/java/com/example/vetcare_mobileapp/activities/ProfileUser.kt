@@ -26,7 +26,7 @@ class ProfileUser : AppCompatActivity() {
         btMascota.setOnClickListener { // Crear un Intent para iniciar ProfilePet
             val intent = Intent(
                 this@ProfileUser,
-                ProfilePet::class.java
+                ListPetActivity::class.java
             )
             // Iniciar la actividad ProfilePet
             startActivity(intent)

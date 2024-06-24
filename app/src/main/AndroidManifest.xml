@@ -19,6 +19,9 @@
         android:theme="@style/Theme.VetCareMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ListPetActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BookAppointmentActivity"
             android:exported="false" />
         <activity
@@ -74,8 +77,6 @@
         <activity
             android:name=".activities.ViewAppointmentsActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".activities.AuthActivity"
             android:exported="true">

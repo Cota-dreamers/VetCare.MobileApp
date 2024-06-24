@@ -12,4 +12,8 @@ class Pet (
     val weight: Float,
     val type: String,
     val photoUrl: String,
+    val color: String,
+    val date: String,
+
+    var isFavourite: Boolean = false
 )

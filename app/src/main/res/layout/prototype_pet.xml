@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvIdLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:text="Nombre de la mascota" />
+
+        <TextView
+            android:id="@+id/tvBreedLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Raza:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/tvBreed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+        <TextView
+            android:id="@+id/tvWeightLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Peso:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvTypeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvColorLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/tvColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+        <TextView
+            android:id="@+id/tvDateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha:"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp" />
+
+        <Button
+            android:id="@+id/btAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
+            android:text="Agregar mascota"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

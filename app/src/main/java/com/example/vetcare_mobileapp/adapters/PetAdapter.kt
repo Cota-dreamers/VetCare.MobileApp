@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vetcare_mobileapp.R
@@ -25,26 +26,38 @@ class PetAdapter (
 ):RecyclerView.Adapter<PetAdapter.PetViewHolder>(){
 
     inner class PetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val petName: EditText = itemView.findViewById<EditText>(R.id.etNombreMascota)
-        val breed: EditText = itemView.findViewById<EditText>(R.id.etRazaMascota)
-        val weight: EditText = itemView.findViewById<EditText>(R.id.etPesoMascota)
-        val type: EditText = itemView.findViewById<EditText>(R.id.etTipoMascota)
-        val photoUrl: EditText = itemView.findViewById<EditText>(R.id.etImagenMascota)
-
+        val petId: TextView = itemView.findViewById(R.id.tvId)
+        val petName: TextView = itemView.findViewById(R.id.tvName)
+        val petImage: ImageView = itemView.findViewById(R.id.ivPhoto)
+        val petWeight: TextView = itemView.findViewById(R.id.tvWeight)
+        val petBreed: TextView = itemView.findViewById(R.id.tvBreed)
+        val petDate: TextView = itemView.findViewById(R.id.tvDate)
+        val petColor: TextView = itemView.findViewById(R.id.tvColor)
+        val petType: TextView = itemView.findViewById(R.id.tvType)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.prototype_product, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.prototype_pet, parent, false)
         return PetViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
 
     override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val pet = pets[position]
+        holder.petId.text = pet.id.toString()
+        holder.petName.text = pet.name
+        Picasso.get().load(pet.photoUrl).into(holder.petImage)
+        holder.petWeight.text = pet.weight.toString()
+        holder.petBreed.text = pet.breed
+        holder.petDate.text = pet.date
+        holder.petColor.text = pet.color
+        holder.petType.text = pet.type
+
+
     }
 
+    override fun getItemCount(): Int {
+      return pets.size
+    }
 
 }
