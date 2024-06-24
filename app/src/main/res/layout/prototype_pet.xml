@@ -105,14 +105,6 @@
             android:layout_height="wrap_content"
             android:paddingTop="2dp" />
 
-        <Button
-            android:id="@+id/btAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/button_background"
-            android:text="Agregar mascota"
-            android:textColor="@android:color/white" />
 
 
     </LinearLayout>
