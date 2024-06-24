@@ -26,11 +26,20 @@ class ConsultMedicActivity : AppCompatActivity() {
         val imReserva = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.imReserva)
         val btAsistencia = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btAsistencia)
         val imAsistencia = findViewById<ImageView>(com.example.vetcare_mobileapp.R.id.imAsistencia)
+        val btCitas = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btCita)
 
         btReserva.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
             val intent = Intent(
                 this@ConsultMedicActivity,
                 BookAppointmentActivity::class.java
+            )
+            // Iniciar la actividad ListCareAdviceActivity
+            startActivity(intent)
+        }
+        btCitas.setOnClickListener { // Crear un Intent para iniciar ListCareAdviceActivity
+            val intent = Intent(
+                this@ConsultMedicActivity,
+                ViewAppointmentsActivity::class.java
             )
             // Iniciar la actividad ListCareAdviceActivity
             startActivity(intent)
