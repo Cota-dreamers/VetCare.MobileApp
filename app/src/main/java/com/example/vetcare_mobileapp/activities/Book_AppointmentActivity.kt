@@ -4,10 +4,13 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vetcare_mobileapp.R
+import com.example.vetcare_mobileapp.database.DatabaseHandler
+import com.example.vetcare_mobileapp.models.Appointment
 import java.util.Calendar
 
 class BookAppointmentActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class BookAppointmentActivity : AppCompatActivity() {
         val tvSelectedDate: TextView = findViewById(R.id.tvSelectedDate)
         val btnTime: Button = findViewById(R.id.btnTime)
         val tvSelectedTime: TextView = findViewById(R.id.tvSelectedTime)
+        val etPetName: EditText = findViewById(R.id.etPetName)
         val btnSave: Button = findViewById(R.id.btnSave)
 
         btnDate.setOnClickListener {
@@ -31,17 +35,23 @@ class BookAppointmentActivity : AppCompatActivity() {
         }
 
         btnSave.setOnClickListener {
-            // Aquí puedes agregar la lógica para guardar la reserva
-        }
+            val date = tvSelectedDate.text.toString()
+            val time = tvSelectedTime.text.toString()
+            val petName = etPetName.text.toString()
 
-        btnSave.setOnClickListener {
-            // Mostrar mensaje al hacer clic en el botón
-            showToast("Reserva Realizada :)")
+            if (date.isNotEmpty() && time.isNotEmpty() && petName.isNotEmpty()) {
+                val dbHandler = DatabaseHandler(this)
+                val appointment = Appointment(date, time, petName)
+                dbHandler.addAppointment(appointment)
+                showToast("Reserva Realizada :)")
+            } else {
+                showToast("Por favor complete todos los campos")
+            }
         }
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun showDatePickerDialog(tvSelectedDate: TextView) {

@@ -72,8 +72,9 @@
             android:name=".AssistanceActivity"
             android:exported="false" />
         <activity
-            android:name=".FAQActivity"
+            android:name=".activities.ViewAppointmentsActivity"
             android:exported="false" />
+
 
         <activity
             android:name=".activities.AuthActivity"
