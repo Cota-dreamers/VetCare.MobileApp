@@ -12,8 +12,18 @@ data class RegisterRequest(
     val password: String
 )
 
+data class LoginRequest(
+    val email: String,
+    val password: String
+)
+
 interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("api/v1/users/register")
     fun registerUser(@Body request: RegisterRequest): Call<Void>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/v1/users/login")
+    fun loginUser(@Body request: LoginRequest): Call<Void>
+
 }

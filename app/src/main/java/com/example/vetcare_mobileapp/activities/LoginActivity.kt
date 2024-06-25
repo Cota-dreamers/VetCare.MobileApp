@@ -10,6 +10,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -18,36 +20,70 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.vetcare_mobileapp.R
+import com.example.vetcare_mobileapp.api.ApiService
+import com.example.vetcare_mobileapp.api.LoginRequest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
     private val channelId = "veterinary_appointment_channel"
+    private lateinit var etLoginUser: EditText
+    private lateinit var etLoginPassword: EditText
+    private lateinit var btIngresar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
 
         createNotificationChannel()
 
-        val btIngresar = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btIngresar)
+        etLoginUser = findViewById(R.id.etLoginUser)
+        etLoginPassword = findViewById(R.id.etLoginPassword)
+        btIngresar = findViewById(R.id.btIngresar)
 
         btIngresar.setOnClickListener {
-
-            showNotification()
-
-            val intent = Intent(
-                this@LoginActivity,
-                MainActivity::class.java
-            )
-            // Iniciar la actividad
-            startActivity(intent)
+            loginUser()
         }
+    }
+
+    private fun loginUser() {
+        val email = etLoginUser.text.toString().trim()
+        val password = etLoginPassword.text.toString().trim()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa todas las credenciales", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://vetcare2.azurewebsites.net/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val apiService = retrofit.create(ApiService::class.java)
+        val loginRequest = LoginRequest(email, password)
+
+        apiService.loginUser(loginRequest).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    showNotification()
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(this@LoginActivity, "Error de red", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun createNotificationChannel() {
