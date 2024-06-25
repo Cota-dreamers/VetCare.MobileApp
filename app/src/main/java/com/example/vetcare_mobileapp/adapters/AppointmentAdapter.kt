@@ -8,25 +8,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vetcare_mobileapp.R
 import com.example.vetcare_mobileapp.models.Appointment
 
-class AppointmentsAdapter(private val appointmentsList: List<Appointment>) :
-    RecyclerView.Adapter<AppointmentsAdapter.ViewHolder>() {
+class AppointmentsAdapter(private val appointments: List<Appointment>) :
+    RecyclerView.Adapter<AppointmentsAdapter.AppointmentViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvAppointmentDetails: TextView = itemView.findViewById(R.id.tvAppointmentDetails)
+    class AppointmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val tvPetName: TextView = view.findViewById(R.id.tvPetName)
+        val tvAppointmentDate: TextView = view.findViewById(R.id.tvAppointmentDate)
+        val tvAppointmentTime: TextView = view.findViewById(R.id.tvAppointmentTime)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {
+        val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_appointment, parent, false)
-        return ViewHolder(itemView)
+        return AppointmentViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val appointment = appointmentsList[position]
-        holder.tvAppointmentDetails.text = "Tiene una cita pendiente para el día ${appointment.date} a la ${appointment.time} para su mascota ${appointment.petName}"
+    override fun onBindViewHolder(holder: AppointmentViewHolder, position: Int) {
+        val appointment = appointments[position]
+        holder.tvPetName.text = "Nombre de la mascota: ${appointment.petName}"
+        holder.tvAppointmentDate.text = "Fecha de cita: ${appointment.date}"
+        holder.tvAppointmentTime.text = "Hora de la cita: ${appointment.time}"
     }
 
     override fun getItemCount(): Int {
-        return appointmentsList.size
+        return appointments.size
     }
 }
