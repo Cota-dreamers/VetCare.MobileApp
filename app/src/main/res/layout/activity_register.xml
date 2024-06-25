@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etApellido" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/etCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -112,23 +112,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="94dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="204dp"
-        android:text="Numero celular"
+        android:text="Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/etCorreo" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="Ingresa tu numero"
+        android:hint="Ingresa tu contraseña"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -158,7 +158,7 @@
         android:text="D. Mascota"
         app:layout_constraintEnd_toStartOf="@+id/btVeterinario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <!-- Enlace a los términos y condiciones -->
 
@@ -174,7 +174,7 @@
         android:text="Veterinario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btMascota"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <CheckBox
         android:id="@+id/cbAcceptTerms"
@@ -184,7 +184,7 @@
         android:text="Aceptar términos y condiciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <TextView
         android:id="@+id/tvTerms"

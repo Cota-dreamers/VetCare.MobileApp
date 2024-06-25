@@ -8,6 +8,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +16,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.vetcare_mobileapp.R
+import com.example.vetcare_mobileapp.api.ApiService
+import com.example.vetcare_mobileapp.api.RegisterRequest
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -22,26 +29,28 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var btRegister: Button
     private lateinit var tvTerms: TextView
     private lateinit var webViewTerms: WebView
+    private lateinit var etNombre: EditText
+    private lateinit var etApellido: EditText
+    private lateinit var etCorreo: EditText
+    private lateinit var etPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_register)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
 
         cbAcceptTerms = findViewById(R.id.cbAcceptTerms)
         btRegister = findViewById(R.id.btRegister)
         tvTerms = findViewById(R.id.tvTerms)
         webViewTerms = findViewById(R.id.webViewTerms)
+        etNombre = findViewById(R.id.etNombre)
+        etApellido = findViewById(R.id.etApellido)
+        etCorreo = findViewById(R.id.etCorreo)
+        etPassword = findViewById(R.id.etPassword)
 
         btRegister.setOnClickListener {
             if (cbAcceptTerms.isChecked) {
-                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                startActivity(intent)
+                registerUser()
             } else {
                 Toast.makeText(this, "Debes aceptar los términos y condiciones", Toast.LENGTH_SHORT).show()
             }
@@ -62,6 +71,42 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    private fun registerUser()  {
+        val firstName = etNombre.text.toString().trim()
+        val lastName = etApellido.text.toString().trim()
+        val email = etCorreo.text.toString().trim()
+        val password = etPassword.text.toString().trim()
+
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://vetcare2.azurewebsites.net/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val apiService = retrofit.create(ApiService::class.java)
+        val registerRequest = RegisterRequest(firstName, lastName, email, password)
+        apiService.registerUser(registerRequest).enqueue(object : retrofit2.Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@RegisterActivity, "Registro fallido", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(this@RegisterActivity, "Error de red", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
     private fun showTermsAndConditions() {
         val htmlContent = """
