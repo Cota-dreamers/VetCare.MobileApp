@@ -1,8 +1,11 @@
 package com.example.vetcare_mobileapp.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,22 +16,28 @@ import com.example.vetcare_mobileapp.R
 class ProfileUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_profile_user)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btVet)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val btMascota = findViewById<Button>(com.example.vetcare_mobileapp.R.id.btMascota)
 
-        btMascota.setOnClickListener { // Crear un Intent para iniciar ProfilePet
-            val intent = Intent(
-                this@ProfileUser,
-                ListPetActivity::class.java
-            )
-            // Iniciar la actividad ProfilePet
+
+        // Leer los datos del usuario desde SharedPreferences
+        val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val firstName = sharedPref.getString("firstName", "Nombre no disponible")
+        val lastName = sharedPref.getString("lastName", "Apellido no disponible")
+        val email = sharedPref.getString("email", "Correo no disponible")
+
+        // Logs para depuración
+        Log.d("ProfileUser", "First Name: $firstName")
+        Log.d("ProfileUser", "Last Name: $lastName")
+        Log.d("ProfileUser", "Email: $email")
+
+        // Actualizar los TextViews con los datos del usuario
+        findViewById<TextView>(R.id.tvProfileName).text = firstName
+        findViewById<TextView>(R.id.etProfileLastName).text = lastName
+        findViewById<TextView>(R.id.tvProfileCorreo).text = email
+        val btMascota = findViewById<Button>(R.id.btMascota)
+        btMascota.setOnClickListener {
+            val intent = Intent(this@ProfileUser, ListPetActivity::class.java)
             startActivity(intent)
         }
     }

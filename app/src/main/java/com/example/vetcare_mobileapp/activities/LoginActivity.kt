@@ -22,11 +22,14 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.vetcare_mobileapp.R
 import com.example.vetcare_mobileapp.api.ApiService
 import com.example.vetcare_mobileapp.api.LoginRequest
+import com.example.vetcare_mobileapp.api.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,12 +38,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etLoginPassword: EditText
     private lateinit var btIngresar: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
 
         createNotificationChannel()
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
         etLoginUser = findViewById(R.id.etLoginUser)
         etLoginPassword = findViewById(R.id.etLoginPassword)
@@ -68,19 +72,33 @@ class LoginActivity : AppCompatActivity() {
         val apiService = retrofit.create(ApiService::class.java)
         val loginRequest = LoginRequest(email, password)
 
-        apiService.loginUser(loginRequest).enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+        apiService.loginUser(loginRequest).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     showNotification()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    val loginResponse = response.body()
+                    if (loginResponse != null) {
+                        // Guardar los datos del usuario en SharedPreferences
+                        val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                        with(sharedPref.edit()) {
+                            putString("firstName", loginResponse.firstName)
+                            putString("lastName", loginResponse.lastName)
+                            putString("email", loginResponse.email)
+                            putString("token", loginResponse.token)
+                            apply()
+                        }
+
+                        // Pasar a la siguiente actividad
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 } else {
                     Toast.makeText(this@LoginActivity, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
                 }
             }
 
-            override fun onFailure(call: Call<Void>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(this@LoginActivity, "Error de red", Toast.LENGTH_SHORT).show()
             }
         })

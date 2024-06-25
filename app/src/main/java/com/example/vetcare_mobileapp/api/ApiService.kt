@@ -17,6 +17,14 @@ data class LoginRequest(
     val password: String
 )
 
+data class LoginResponse(
+    val id: Int,
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val token: String
+)
+
 interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("api/v1/users/register")
@@ -24,6 +32,6 @@ interface ApiService {
 
     @Headers("Content-Type: application/json")
     @POST("api/v1/users/login")
-    fun loginUser(@Body request: LoginRequest): Call<Void>
+    fun loginUser(@Body request: LoginRequest): Call<LoginResponse>
 
 }
