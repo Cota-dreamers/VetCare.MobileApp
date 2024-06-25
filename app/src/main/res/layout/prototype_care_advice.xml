@@ -32,11 +32,15 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="14sp" />
+
         <TextView
             android:id="@+id/tvYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="asdasd" />
 
         <Button
             android:id="@+id/btAdd"
