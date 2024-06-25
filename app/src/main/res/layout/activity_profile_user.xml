@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Nombre"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imggirl" />
@@ -34,13 +35,15 @@
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:text="Nombre del Perfil"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFirstName"
-        android:text="Nombre del Perfil" />
+        app:layout_constraintTop_toBottomOf="@id/tvFirstName" />
 
     <TextView
         android:id="@+id/tvLastName"
@@ -48,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Apellido"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProfileName" />
@@ -56,13 +60,15 @@
         android:id="@+id/etProfileLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:text="Apellido del Perfil"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLastName"
-        android:text="Apellido del Perfil" />
+        app:layout_constraintTop_toBottomOf="@id/tvLastName" />
 
     <TextView
         android:id="@+id/tvCorreo"
@@ -70,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Correo"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etProfileLastName" />
@@ -78,13 +85,15 @@
         android:id="@+id/tvProfileCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:text="Correo del Perfil"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCorreo"
-        android:text="Correo del Perfil" />
+        app:layout_constraintTop_toBottomOf="@id/tvCorreo" />
 
     <Button
         android:id="@+id/btMascota"
